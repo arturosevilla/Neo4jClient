@@ -95,7 +95,7 @@ namespace Neo4jClient.Test.Cypher
         {
             // Arrange
             var client = Substitute.For<IRawGraphClient>();
-            
+            client.JsonContractResolver = GraphClient.DefaultJsonContractResolver;
             // Act
             var query = new CypherFluentQuery(client)
                 .Start("n", (NodeReference) 3)

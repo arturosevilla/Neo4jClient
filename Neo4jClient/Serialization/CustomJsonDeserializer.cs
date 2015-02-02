@@ -13,13 +13,13 @@ namespace Neo4jClient.Serialization
     {
         readonly IEnumerable<JsonConverter> jsonConverters;
         readonly CultureInfo culture;
-        readonly DefaultContractResolver jsonResolver;
+        readonly IContractResolver jsonResolver;
 
         public CustomJsonDeserializer(IEnumerable<JsonConverter> jsonConverters) : this(jsonConverters, null)
         {
         }
 
-        public CustomJsonDeserializer(IEnumerable<JsonConverter> jsonConverters, CultureInfo cultureInfo = null, DefaultContractResolver resolver = null)
+        public CustomJsonDeserializer(IEnumerable<JsonConverter> jsonConverters, CultureInfo cultureInfo = null, IContractResolver resolver = null)
         {
             this.jsonConverters = jsonConverters;
             culture = cultureInfo ?? CultureInfo.InvariantCulture;

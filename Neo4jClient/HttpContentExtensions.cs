@@ -15,7 +15,7 @@ namespace Neo4jClient
             return readTask.Result;
         }
 
-        public static T ReadAsJson<T>(this HttpContent content, IEnumerable<JsonConverter> jsonConverters, DefaultContractResolver resolver)
+        public static T ReadAsJson<T>(this HttpContent content, IEnumerable<JsonConverter> jsonConverters, IContractResolver resolver)
             where T : new()
         {
             var stringContent = content.ReadAsString();

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Neo4jClient.ApiModels;
 using Neo4jClient.Cypher;
+using Neo4jClient.Execution;
 using Neo4jClient.Gremlin;
+using Neo4jClient.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -121,8 +123,28 @@ namespace Neo4jClient
 
         Version ServerVersion { get; }
 
+        Uri RootEndpoint { get; }
+
+        Uri BatchEndpoint { get; }
+
+        Uri CypherEndpoint { get; }
+
+        Uri GremlinEndpoint { get; }
+
+        Uri NodeIndexEndpoint { get; }
+
+        Uri RelationshipIndexEndpoint { get; }
+
+        ISerializer Serializer { get; }
+
+        ExecutionConfiguration ExecutionConfiguration { get; }
+
+        bool IsConnected { get; }
+
+        void Connect();
+
         List<JsonConverter> JsonConverters { get; }
 
-        DefaultContractResolver JsonContractResolver { get; set; }
+        IContractResolver JsonContractResolver { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Neo4jClient.Execution;
 using NSubstitute;
 using NUnit.Framework;
 

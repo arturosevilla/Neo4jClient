@@ -24,6 +24,7 @@ namespace Neo4jClient.Test.Cypher
         public void DebugQueryTextShouldSubstituteNumericParameters()
         {
             var client = Substitute.For<IRawGraphClient>();
+            client.JsonContractResolver = GraphClient.DefaultJsonContractResolver;
             var query = new CypherFluentQuery(client)
                 .Match("{param}")
                 .WithParams(new
@@ -40,6 +41,7 @@ namespace Neo4jClient.Test.Cypher
         public void DebugQueryTextShouldSubstituteStringParametersWithEncoding()
         {
             var client = Substitute.For<IRawGraphClient>();
+            client.JsonContractResolver = GraphClient.DefaultJsonContractResolver;
             var query = new CypherFluentQuery(client)
                 .Match("{param}")
                 .WithParams(new
@@ -56,6 +58,7 @@ namespace Neo4jClient.Test.Cypher
         public void DebugQueryTextShouldSubstituteStringParametersWithEncodingOfSpecialCharacters()
         {
             var client = Substitute.For<IRawGraphClient>();
+            client.JsonContractResolver = GraphClient.DefaultJsonContractResolver;
             var query = new CypherFluentQuery(client)
                 .Match("{param}")
                 .WithParams(new
@@ -73,6 +76,7 @@ namespace Neo4jClient.Test.Cypher
         public void DebugQueryTextShouldSubstituteNullParameters()
         {
             var client = Substitute.For<IRawGraphClient>();
+            client.JsonContractResolver = GraphClient.DefaultJsonContractResolver;
             var query = new CypherFluentQuery(client)
                 .Match("{param}")
                 .WithParams(new
